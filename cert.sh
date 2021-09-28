@@ -9,8 +9,8 @@ set -e
 # HEROKU_APP
 
 # Only run once per week (Heroku scheduler runs daily)
-if [ "$(date +%u)" = 1 ]
-then
+# if [ "$(date +%u)" = 1 ]
+# then
   # Download dependencies
   git clone https://github.com/Neilpang/acme.sh.git
   cd ./acme.sh
@@ -27,4 +27,4 @@ then
 
   # Update the certificate in the live app
   heroku certs:update "/app/.acme.sh/$DOMAIN/fullchain.cer" "/app/.acme.sh/$DOMAIN/$DOMAIN.key" --confirm $HEROKU_APP --app $HEROKU_APP
-fi
+# fi
